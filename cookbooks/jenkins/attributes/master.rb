@@ -30,12 +30,12 @@ default['jenkins']['master'].tap do |master|
   # Apt/Yum repos. On other platforms, the default method is using the war
   # file.
   #
-  #   node.normal['jenkins']['master']['install_method'] = 'war'
+  #  node.normal['jenkins']['master']['install_method'] = 'war'
   #
-  master['install_method'] = case node['platform_family']
-                             when 'debian', 'rhel', 'amazon' then 'package'
-                             else 'war'
-                             end
+   master['install_method'] = case node['platform_family']
+                              when 'debian', 'rhel', 'amazon' then 'package'
+                              else'war'
+                              end
 
   #
   # The version of the Jenkins master to install. This can be a specific
