@@ -63,5 +63,11 @@ end
 #Start and enable tomcat service if requested
 service 'tomcat8' do
   action [:enable, :start]
-  only_if { node['tomcat8']['autostart'] }
+end
+
+#Creating user file
+template "/var/tomcat8/conf/tomcat-users.xml" do
+   source 'tomcat-users.xml.erb'
+   owner 'root'
+   mode '0755'
 end
